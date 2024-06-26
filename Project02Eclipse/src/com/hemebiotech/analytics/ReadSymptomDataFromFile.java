@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+//Implémentation de ISymptomReader pour lire les symptômes depuis un fichier
+
 
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
@@ -17,7 +19,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 	
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> getSymptoms() {
 
 		ArrayList<String> result = new ArrayList<String>();
 		

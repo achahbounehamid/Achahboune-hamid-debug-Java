@@ -4,24 +4,41 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.TreeMap;
-
+/**
+ * Class responsible for analyzing symptoms data.
+ */
 public class AnalyticsCounter {
 
 	private ISymptomReader reader;
 	private ISymptomWriter writer;
+	/**
+	 * Constructor for AnalyticsCounter.
+	 *
+	 * @param reader the symptom reader
+	 * @param writer the symptom writer
+	 */
 
-	// Constructeur qui prend des objets ISymptomReader et ISymptomWriter comme paramètres
 	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
 		this.reader = reader;
 		this.writer = writer;
 	}
 
-	// Méthode pour récupérer la liste des symptômes
+	/**
+	 * Retrieves the list of symptoms.
+	 *
+	 * @return a list of symptoms
+	 */
+
 	public List<String> getSymptoms() {
 		return reader.readSymptoms();
 	}
+	/**
+	 * Counts the occurrences of each symptom.
+	 *
+	 * @param symptoms list of symptoms
+	 * @return a map of symptom counts
+	 */
 
-	// Méthode pour compter les occurrences de chaque symptôme
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
 		Map<String, Integer> symptomCounts = new HashMap<>();
 		for (String symptom : symptoms) {
@@ -30,12 +47,20 @@ public class AnalyticsCounter {
 		return symptomCounts;
 	}
 
-	// Méthode pour trier les symptômes par ordre alphabétique
+	/**
+	 * Sorts the symptoms by alphabetical order.
+	 *
+	 * @param symptoms map of symptom counts
+	 * @return a sorted map of symptom counts
+	 */
 	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
 		return new TreeMap<>(symptoms);
 	}
-
-	// Méthode pour écrire les résultats dans le fichier de sortie
+	/**
+	 * Writes the symptoms data to a file.
+	 *
+	 * @param symptoms map of symptom counts
+	 */
 	public void writeSymptoms(Map<String, Integer> symptoms) {
 		writer.writeSymptoms(symptoms);
 	}

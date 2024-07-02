@@ -3,27 +3,36 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Main class to run the analytics.
+ */
 public class Main {
+
+    /**
+     * Main method to execute the analytics process.
+     *
+     * @param args command line arguments
+     */
 
     public static void main(String[] args) {
         try {
-            // Instanciation des objets ISymptomReader et ISymptomWriter
+            // Instantiate the reader and writer
             ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
             ISymptomWriter writer = new WriteSymptomDataToFile("result.out");
 
-            // Instanciation de l'objet AnalyticsCounter
+            // Instantiate AnalyticsCounter
             AnalyticsCounter analyticsCounter = new AnalyticsCounter(reader, writer);
 
-            // Récupération des symptômes
+            // Retrieve symptoms
             List<String> symptoms = analyticsCounter.getSymptoms();
 
-            // Comptage des occurrences de chaque symptôme
+            // Count symptom occurrences
             Map<String, Integer> symptomCounts = analyticsCounter.countSymptoms(symptoms);
 
-            // Tri des symptômes par ordre alphabétique
+            // Sort symptoms alphabetically
             Map<String, Integer> sortedSymptoms = analyticsCounter.sortSymptoms(symptomCounts);
 
-            // Écriture des résultats dans le fichier de sortie
+            // Write results to file
             analyticsCounter.writeSymptoms(sortedSymptoms);
 
         } catch (Exception e) {

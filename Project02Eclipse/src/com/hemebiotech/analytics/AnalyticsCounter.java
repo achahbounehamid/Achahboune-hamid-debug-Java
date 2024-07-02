@@ -39,13 +39,4 @@ public class AnalyticsCounter {
 	public void writeSymptoms(Map<String, Integer> symptoms) {
 		writer.writeSymptoms(symptoms);
 	}
-
-	// Méthode main refactorisée
-	public static void main(String[] args) throws Exception {
-		// Initialisation des lecteurs et écrivains de symptômes
-		ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
-		ISymptomWriter writer = new WriteSymptomDataToFile("result.out");
-
-
-	}
 }

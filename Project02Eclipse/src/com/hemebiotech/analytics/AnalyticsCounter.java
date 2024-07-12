@@ -40,11 +40,13 @@ public class AnalyticsCounter {
 	 */
 
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
-		Map<String, Integer> symptomCounts = new HashMap<>();
-		for (String symptom : symptoms) {
-			symptomCounts.put(symptom, symptomCounts.getOrDefault(symptom, 0) + 1);
-		}
-		return symptomCounts;
+	Map<String, Integer> mapSymptoms = new HashMap<>();
+	for( String symptom: symptoms){
+
+		mapSymptoms.put(symptom,mapSymptoms.getOrDefault(symptom, 0)+1);
+	}
+	return mapSymptoms;
+
 	}
 
 	/**
